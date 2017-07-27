@@ -1,23 +1,50 @@
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-<form action="LoginServe" method="post" >
-<table>
-<tr>
-<td><label>ENTER USERNAME</label></td>
-<td><input type="text" name="uname"></td>
-</tr>
-<tr>
-<td><label>ENTER PASSWORD</label></td>
-<td><input type="password" name="pass"></td>
-</tr>
-<tr>
-<td><input type="submit" value="LOGIN"></td>
-</tr>
-</table>
-</form>
-</body>
-</html>
+package simple.webpage.entity;
+
+import java.io.Serializable;
+import javax.persistence.*;
+
+
+/**
+ * The persistent class for the person database table.
+ * 
+ */
+@Entity
+@NamedQuery(name="Person.findAll", query="SELECT p FROM Person p")
+public class Person implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	private int id;
+
+	private String country;
+
+	private String name;
+
+	public Person() {
+	}
+
+	public int getId() {
+		return this.id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getCountry() {
+		return this.country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+}
